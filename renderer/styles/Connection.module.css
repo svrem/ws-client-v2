@@ -1,0 +1,122 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("../public//fonts//Roboto/Roboto-Black.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+.body > * {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto";
+  box-sizing: border-box;
+}
+
+.status > * {
+  /* background: black; */
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.messageDiv {
+  background-color: #272727;
+  width: 50vw;
+  height: 75vh;
+  margin: auto;
+  transform: translateY(-3vh);
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  /* display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+  align-items: flex-start; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.message {
+  background: #626262;
+  width: 95%;
+  height: 75px;
+  display: flex;
+  color: white;
+  border-radius: 10px;
+  border: 2px solid black;
+  margin: 5px;
+}
+
+.sendForm {
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  width: 90vw;
+}
+
+.sendForm > input {
+  width: 50vw;
+  /* height: 5vh; */
+  border-radius: 5px;
+  border: 0;
+  text-indent: 10px;
+  font-size: 1.25rem;
+}
+
+.sendForm > * {
+  max-height: 75px;
+  box-shadow: 1px 1px 0 0 rgba(0, 0, 0);
+}
+
+.sendForm > button {
+  width: 10vw;
+  height: 7.5vh;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  margin: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.2rem;
+  text-overflow: clip;
+
+  /* Required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.sendForm > input {
+  outline: none;
+}
+
+@keyframes pressed {
+  from {
+    box-shadow: 1px 1px 0 0 rgba(0, 0, 0);
+  }
+  50% {
+    box-shadow: inset 1px 1px 0 0 rgba(0, 0, 0);
+  }
+  to {
+    box-shadow: 1px 1px 0 0 rgba(0, 0, 0);
+  }
+}
+.sendForm > button:active {
+  animation: pressed 0.25s ease-in-out;
+}
+
+.sendForm > button:focus {
+  outline: none;
+}
+
+.Send {
+  background: #315416;
+}
+
+.Disconnect {
+  background: #902929;
+}
