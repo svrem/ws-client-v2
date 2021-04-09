@@ -10,39 +10,21 @@ const connection = () => {
   const [connected, setConnected] = useState(false);
   const [messages, setMessages] = useState([
     { text: "gerda is kaulo groot", send: false },
-    { text: "gerda is kaulo groot2", send: false },
-    { text: "gerda is kaulo groot3", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
-    { text: "gerda is kaulo groot4", send: false },
   ]);
+  const [ws, setWs] = useState(false);
+  const sendMessage = (message) => {};
+
   const router = useRouter();
   const { url } = router.query;
   return (
     <div className={styles.body}>
-      <Connection url={url} connected={connected} />
+      <Connection
+        ws={ws}
+        setWs={setWs}
+        url={url}
+        connected={connected}
+        setConnected={setConnected}
+      />
       <Messages messages={messages} />
       <SendForm setMessages={setMessages} messages={messages} />
     </div>

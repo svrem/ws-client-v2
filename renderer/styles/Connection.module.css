@@ -15,7 +15,6 @@
 
 .status > * {
   /* background: black; */
-  color: white;
   margin: 0;
   padding: 0;
 }
@@ -39,6 +38,30 @@
   overflow-y: scroll;
 }
 
+@keyframes grow {
+  from {
+    height: 75px;
+  }
+  to {
+    height: auto !important;
+  }
+}
+
+.bigMessage {
+  /* height: initial !important; */
+  /* background-color: white !important; */
+  animation: grow 0.2s ease-in-out;
+
+  height: auto !important;
+}
+.bigMessage > h1 {
+  /* text-overflow: unset; */
+
+  white-space: inherit !important;
+  overflow: auto;
+  font-size: 1.8rem;
+}
+
 .message {
   background: #626262;
   width: 95%;
@@ -48,6 +71,15 @@
   border-radius: 10px;
   border: 2px solid black;
   margin: 5px;
+  transition: all 0.5s ease-in-out;
+}
+
+.message > h1 {
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 1.8rem;
 }
 
 .sendForm {
@@ -119,4 +151,14 @@
 
 .Disconnect {
   background: #902929;
+}
+
+.arrow {
+  /* background: black; */
+  height: 100%;
+  width: 5%;
+  margin: auto 0;
+  top: 0;
+  bottom: 0;
+  transform: translateY(5px);
 }
