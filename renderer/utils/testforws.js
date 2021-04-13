@@ -1,6 +1,11 @@
 const test = (url) => {
   try {
-    const ws = new WebSocket(url);
+    let ws = new WebSocket(url);
+
+    ws.onclose = () => {
+      console.log("cranked");
+      return;
+    };
 
     return true;
   } catch (e) {

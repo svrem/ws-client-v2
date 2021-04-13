@@ -5,7 +5,6 @@ import { useState } from "react";
 
 const message = ({ message }) => {
   const [big, setBig] = useState(false);
-  console.log(big);
   return (
     <div
       onClick={() => setBig(!big)}

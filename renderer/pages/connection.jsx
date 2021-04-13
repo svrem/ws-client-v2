@@ -8,13 +8,20 @@ import Connection from "../components/connection";
 
 const connection = () => {
   const [connected, setConnected] = useState(false);
-  const [messages, setMessages] = useState([
-    { text: "gerda is kaulo groot", send: false },
-  ]);
+  const [messages, setMessages] = useState([]);
   const [ws, setWs] = useState(false);
-  const sendMessage = (message) => {};
+  const sendMessage = (message) => {
+    if (ws.readyState !== 0) {
+      createMessage(message, true);
+      ws.send(message);
+    }
+  };
+  const createMessage = (message, send) => {
+    setMessages([...messages, { text: message, send: send }]);
+  };
 
   const router = useRouter();
+  // console.log(messages);
   const { url } = router.query;
   return (
     <div className={styles.body}>
@@ -24,9 +31,15 @@ const connection = () => {
         url={url}
         connected={connected}
         setConnected={setConnected}
+        setMessages={setMessages}
+        messages={messages}
       />
       <Messages messages={messages} />
-      <SendForm setMessages={setMessages} messages={messages} />
+      <SendForm
+        setMessages={setMessages}
+        messages={messages}
+        sendMessage={sendMessage}
+      />
     </div>
   );
 };

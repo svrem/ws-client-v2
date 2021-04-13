@@ -38,34 +38,37 @@
   overflow-y: scroll;
 }
 
-@keyframes grow {
+/* @keyframes grow {
   from {
     height: 75px;
   }
   to {
     height: auto !important;
   }
-}
+} */
 
 .bigMessage {
   /* height: initial !important; */
   /* background-color: white !important; */
-  animation: grow 0.2s ease-in-out;
+  /* animation: grow 0.2s ease-in-out; */
+  height: initial !important;
 
-  height: auto !important;
+  /* overflow: hidden; */
 }
 .bigMessage > h1 {
-  /* text-overflow: unset; */
+  /* overflow: hidden; */
+  text-overflow: initial !important;
 
-  white-space: inherit !important;
-  overflow: auto;
-  font-size: 1.8rem;
+  white-space: initial !important;
+  overflow: initial !important;
 }
 
 .message {
+  cursor: pointer;
   background: #626262;
   width: 95%;
   height: 75px;
+  overflow: hidden;
   display: flex;
   color: white;
   border-radius: 10px;

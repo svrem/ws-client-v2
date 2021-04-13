@@ -15,14 +15,12 @@ const sendform = ({ setMessages, messages, sendMessage }) => {
       >
         Disconnect
       </button>
-      <input placeholder="Message" className={styles.input} />
+
+      <input id="message" placeholder="Message" className={styles.input} />
       <button
         onClick={() => {
-          console.log("wow");
-          setMessages([
-            ...messages,
-            { text: "gerda is kaulo groot2", send: true },
-          ]);
+          sendMessage(document.getElementById("message").value);
+          document.getElementById("message").value = "";
         }}
         className={styles.Send}
       >
