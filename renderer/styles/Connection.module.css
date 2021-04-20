@@ -47,41 +47,52 @@
   }
 } */
 
-.bigMessage {
-  /* height: initial !important; */
-  /* background-color: white !important; */
-  /* animation: grow 0.2s ease-in-out; */
-  height: initial !important;
+/* .bigMessage {
+  height: auto !important;
+  background: red !important;
 
-  /* overflow: hidden; */
-}
-.bigMessage > h1 {
-  /* overflow: hidden; */
-  text-overflow: initial !important;
-
-  white-space: initial !important;
   overflow: initial !important;
 }
+.bigMessage > h1 {
+  text-overflow: initial !important;
 
+  white-space: nowrap;
+  overflow: hidden;
+} */
+
+.arrow {
+  /* background: black; */
+  min-height: 35px;
+
+  min-width: 35px;
+  margin: auto 0;
+  top: 0;
+  bottom: 0;
+  transform: translateY(3px);
+}
 .message {
   cursor: pointer;
   background: #626262;
   width: 95%;
-  height: 75px;
+  min-height: 75px;
+  height: fit-content;
   overflow: hidden;
   display: flex;
   color: white;
   border-radius: 10px;
   border: 2px solid black;
-  margin: 5px;
+  margin-bottom: 10px;
   transition: all 0.5s ease-in-out;
 }
 
+.copied {
+  background-color: rgb(42, 100, 42) !important;
+}
 .message > h1 {
-  text-overflow: ellipsis;
+  /* text-overflow: ellipsis;
 
   white-space: nowrap;
-  overflow: hidden;
+  overflow: hidden; */
   font-size: 1.8rem;
 }
 
@@ -154,14 +165,4 @@
 
 .Disconnect {
   background: #902929;
-}
-
-.arrow {
-  /* background: black; */
-  height: 100%;
-  width: 5%;
-  margin: auto 0;
-  top: 0;
-  bottom: 0;
-  transform: translateY(5px);
 }

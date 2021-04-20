@@ -3,6 +3,7 @@ import { useState } from "react";
 import styles from "../styles/Connection.module.css";
 import Messages from "../components/messages";
 import SendForm from "../components/sendform";
+import UserMessage from "../components/userMessage";
 
 import Connection from "../components/connection";
 
@@ -20,6 +21,10 @@ const connection = () => {
     setMessages([...messages, { text: message, send: send }]);
   };
 
+  const triggerMessage = (mess) => {
+    console.log(mess);
+  };
+
   const router = useRouter();
   // console.log(messages);
   const { url } = router.query;
@@ -34,7 +39,7 @@ const connection = () => {
         setMessages={setMessages}
         messages={messages}
       />
-      <Messages messages={messages} />
+      <Messages triggerMessage={triggerMessage} messages={messages} />
       <SendForm
         setMessages={setMessages}
         messages={messages}
