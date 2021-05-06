@@ -10,38 +10,41 @@ const connection = ({
   setMessages,
   messages,
 }) => {
-  console.log(messages);
-  // let d = setInterval(() => {
-  //   setWs(new WebSocket(url || "ws://localhost:3001"));
-  // }, 1000);
   useEffect(() => {
     if (ws !== false) {
-      console.log(ws);
       ws.onopen = () => {
         setConnected(true);
+        setMessages([]);
       };
       ws.onclose = () => {
-        ws.close();
-        // d = setInterval(() => {
-        //   setWs(new WebSocket(url || "ws://localhost:3001"));
-        // }, 1000);
         setConnected(false);
+        setWs(false);
+        console.log("closed");
+        console.log(ws);
+        ws.close();
       };
       ws.onmessage = (message) => {
-        console.log(message.data, messages);
-
         setMessages([...messages, { text: message.data, send: false }]);
+      };
+      ws.onerror = () => {
+        console.log("error");
       };
     }
     return () => {};
   });
 
   useEffect(() => {
-    if (ws === false) {
-      setWs(new WebSocket(url || "ws://localhost:3001"));
-    }
-    return () => {};
-  }, [connected]);
+    let d = setInterval(() => {
+      console.log(ws);
+      if (ws === false) {
+        setWs(new WebSocket(url || "ws://localhost:3001"));
+        clearInterval(d);
+      } else {
+        clearInterval(d);
+      }
+    }, 1000);
+    // return () => {};
+  }, [ws]);
 
   return (
     <div className={styles.status}>
