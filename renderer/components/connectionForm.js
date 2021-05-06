@@ -10,7 +10,7 @@ const connectionForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const good = testforws(url);
-    if (!good && url !== "testing") {
+    if (!good) {
       e.target.url.classList.remove(styles.animated);
       e.target.url.classList.add(styles.animated);
     } else {
