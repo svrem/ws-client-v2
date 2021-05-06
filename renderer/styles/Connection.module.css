@@ -13,6 +13,9 @@
   box-sizing: border-box;
 }
 
+.status {
+  /* position: absolute; */
+}
 .status > * {
   /* background: black; */
   margin: 0;
@@ -20,6 +23,7 @@
 }
 
 .messageDiv {
+  z-index: 10;
   background-color: #272727;
   width: 50vw;
   height: 75vh;
@@ -35,7 +39,7 @@
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 
 /* @keyframes grow {
@@ -165,4 +169,70 @@
 
 .Disconnect {
   background: #902929;
+}
+
+.connectedBlur {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+.disconnectedBlur {
+  width: 100%;
+  background: rgba(117, 117, 117, 0.5);
+  /* filter: blur(10rem); */
+  height: 100%;
+  padding: 0 0;
+  margin: 0 0;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 11;
+}
+
+.loader {
+  border: 10px solid #f3f3f3; /* Light grey */
+  border-top: 10px solid grey;
+  border-radius: 50%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.cancelBtn {
+  background: grey;
+  border: 1px solid white;
+  width: 100px;
+  height: 50px;
+  color: white;
+  font-family: "Roboto";
+  letter-spacing: 1px;
+  font-size: 1.25rem;
+  border-radius: 10px;
+  left: 0;
+  right: 0;
+  /* top: 0; */
+  bottom: 5%;
+  margin: auto;
+  position: absolute;
+  /* transform: translateY(200%); */
+}
+
+.cancelBtn:focus {
+  outline: none;
 }
