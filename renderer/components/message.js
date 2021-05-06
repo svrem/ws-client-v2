@@ -4,7 +4,7 @@ import { BsArrowUp, BsArrowDown } from "react-icons/bs";
 import { useState } from "react";
 import { clipboard } from "electron";
 
-const message = ({ message, triggerMessage }) => {
+const message = ({ message }) => {
   const [big, setBig] = useState(false);
   const [copied, setCopied] = useState(false);
   return (
@@ -12,7 +12,6 @@ const message = ({ message, triggerMessage }) => {
       onClick={() => {
         setBig(!big);
         setCopied(true);
-        triggerMessage("Copied!");
         clipboard.writeText(message.text);
 
         setTimeout(() => {
